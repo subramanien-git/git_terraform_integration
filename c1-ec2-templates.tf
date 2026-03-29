@@ -15,12 +15,12 @@ EOF
 )
 } */
 resource "aws_launch_template" "ec2_instance" {
-  name_prefix   = "gopal-web-launch-template"
+  name_prefix   = "subbu-web-launch-template"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type["dev"]
   update_default_version = true #we are upding the default version
 
-  key_name               = "gopal"
+  key_name               = "subbu"
   vpc_security_group_ids = [aws_security_group.web_sg.id]
  user_data = base64encode(<<EOF
 #!/bin/bash
