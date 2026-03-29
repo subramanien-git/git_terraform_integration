@@ -22,7 +22,7 @@ resource "aws_autoscaling_group" "web" {
   desired_capacity = 2
   max_size         = 4
   min_size = 2 #it should create two instances at the time of creation of autoscaling group and it can scale up to 4 instances and it will not scale down below 2 instances
-  name              = "gopal-autoscaling-group"
+  name              = "subbu-autoscaling-group1"
   #i want that the instance should be deployed in two az 
   vpc_zone_identifier = values(aws_subnet.sky_subnet)[*].id #this is the subnet where the autoscaling group will be created
   target_group_arns = [ aws_lb_target_group.app_tg.arn ]
@@ -44,7 +44,7 @@ resource "aws_autoscaling_group" "web" {
 
    tag {
      key                 = "Name"
-     value               = "gopal-autoscaling-group"
+     value               = "subbu-autoscaling-group1"
      propagate_at_launch = true
    
   }
